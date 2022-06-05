@@ -20,6 +20,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius =  imageView.frame.size.height/2
         return imageView
     }()
+    
     let brandName: UILabel = {
         let text = UILabel()
         text.font = UIFont(name: "Helvetica", size: 13)
