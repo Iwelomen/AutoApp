@@ -13,8 +13,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     let productImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = false
         imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -107,33 +107,35 @@ class MainCollectionViewCell: UICollectionViewCell {
         
         productImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
         
-        productDetailsView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom:bottomAnchor, right: rightAnchor, topConstant: 80, leftConstant: 20, bottomConstant: 0, rightConstant: 20)
+        productDetailsView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom:bottomAnchor, right: rightAnchor, topConstant: 10, leftConstant: 20, bottomConstant: 10, rightConstant: 20)
         
-        productImageV.anchorWithConstantsToTop(top: topAnchor, left:  leftAnchor, bottom: productDetailsView.bottomAnchor, right: rightAnchor, topConstant: 100, leftConstant: 35, bottomConstant: 100, rightConstant: 35)
+        productImageV.anchorWithConstantsToTop(top: topAnchor, left:  leftAnchor, bottom: productDetailsView.bottomAnchor, right: rightAnchor, topConstant: 30, leftConstant: 35, bottomConstant: 100, rightConstant: 35)
         
         productNametextView.anchorWithConstantsToTop(top: productImageV.bottomAnchor, left: leftAnchor,
-                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
-                                                     bottomConstant: 60, rightConstant: 0)
+                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 35,
+                                                     bottomConstant: 70, rightConstant: 0)
         yearTextView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
-                                              bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
-                                              bottomConstant: 40, rightConstant: 0)
+                                              bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 35,
+                                              bottomConstant: 50, rightConstant: 0)
         mileageTextView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
-                                                 bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
-                                                 bottomConstant: 0, rightConstant: 0)
+                                                 bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 35,
+                                                 bottomConstant: 10, rightConstant: 0)
         productRateView.anchorWithConstantsToTop(top: productImageV.bottomAnchor, left: leftAnchor,
-                                                 bottom: yearTextView.bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
+                                                 bottom: yearTextView.bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 320,
                                                  bottomConstant: 70, rightConstant: 40)
         productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
         productRateView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05).isActive = true
         addButton.anchorWithConstantsToTop(top: productRateView.bottomAnchor, left: leftAnchor,
-                                           bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 330,
+                                           bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 340,
                                            bottomConstant: 20, rightConstant: 0)
         addButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
         addButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1).isActive = true
         
         NSLayoutConstraint.activate([
-            productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -12),
-            productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30),
+            productRateView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -7),
+            
+            productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -10),
+            productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -16),
         ])
     }
     

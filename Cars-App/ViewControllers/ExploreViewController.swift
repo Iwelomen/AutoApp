@@ -86,7 +86,8 @@ class ExploreViewController: UIViewController {
     lazy var mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 30
+        layout.collectionView?.isPagingEnabled = true
+        layout.minimumLineSpacing = 5
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -129,12 +130,12 @@ class ExploreViewController: UIViewController {
         NSLayoutConstraint.activate([
             //MARK: - CONSTRAINTS FOR EXPLORE ICON
             exploreIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            exploreIcon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            exploreIcon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             exploreIcon.heightAnchor.constraint(equalToConstant: 25),
             exploreIcon.widthAnchor.constraint(equalToConstant: 25),
             //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
             titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titlePageLabel.leadingAnchor.constraint(equalTo: exploreIcon.trailingAnchor, constant: 20),
+            titlePageLabel.leadingAnchor.constraint(equalTo: exploreIcon.trailingAnchor, constant: 10),
             //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
             cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -147,18 +148,18 @@ class ExploreViewController: UIViewController {
             searchBar.heightAnchor.constraint(equalToConstant: 50),
             searchBar.widthAnchor.constraint(equalToConstant: 50),
             //MARK: - CONSTRAINTS FOR SEARCH BUTTON
-            searchButton.topAnchor.constraint(equalTo: cartIcon.bottomAnchor, constant: 20),
-            searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            searchButton.topAnchor.constraint(equalTo: searchBar.topAnchor),
+            searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             searchButton.heightAnchor.constraint(equalToConstant: 50),
             searchButton.widthAnchor.constraint(equalToConstant: 50),
             //MARK: - BRANDCOLLECTIONVIEW CONSTRAINTS
             brandCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
-            brandCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            brandCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             //MARK: - MAINCOLLECTIONVIEW CONSTRAINTS
             mainCollectionView.topAnchor.constraint(equalTo: brandCollectionView.bottomAnchor, constant: 20),
-            mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
             
             

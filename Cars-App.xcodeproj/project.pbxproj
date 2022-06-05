@@ -92,12 +92,12 @@
 		841B6026284BDC7C007C42B5 /* Cars-App */ = {
 			isa = PBXGroup;
 			children = (
+				841B603B284BDCED007C42B5 /* Delegates */,
 				841B603E284BE17D007C42B5 /* Networking */,
 				841B6043284BE241007C42B5 /* ViewModels */,
 				841B604C284BE38D007C42B5 /* Models */,
 				841B6051284BE56C007C42B5 /* View */,
 				841B6060284BE87E007C42B5 /* ViewControllers */,
-				841B603B284BDCED007C42B5 /* Delegates */,
 				841B602B284BDC7C007C42B5 /* ViewController.swift */,
 				841B6030284BDC7E007C42B5 /* Assets.xcassets */,
 				841B6035284BDC7E007C42B5 /* Info.plist */,

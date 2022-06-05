@@ -156,19 +156,19 @@ class ProductDetailsViewController: UIViewController {
         }
         if urlString.contains("png"){
 //
-//            URLSession.shared.dataTask(with: url) { data, _, error in
-//                guard let data = data, error == nil else { return}
-//                DispatchQueue.main.async {
-//                    guard let image: UIImage = UIImage(data: data) else {
-//                        return
-//                    }
-//                    self.productImageV.image = image.imageUrl
-//                    guard let img  = UIImage(data: data) else { return }
-//                    self.productImageV.image = img
-//                }
-//            }.resume()
-//
-//        } else {
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                guard let data = data, error == nil else { return}
+                DispatchQueue.main.async {
+                    guard let image: UIImage = UIImage(data: data) else {
+                        return
+                    }
+                    self.productImageV.image = UIImage(data: data)
+                    guard let img  = UIImage(data: data) else { return }
+                    self.productImageV.image = img
+                }
+            }.resume()
+
+        } else {
             URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data, error == nil else { return}
                 DispatchQueue.main.async {
@@ -251,34 +251,34 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @objc func didTapTopBackArrowButton() {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: false)
     }
     // MARK: - FUNCTION TO SETUP VIEW CONSTRAINTS
     func setupConstraints() {
         addDefaultViews()
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             backButton.heightAnchor.constraint(equalToConstant: 25),
-            backButton.widthAnchor.constraint(equalToConstant: 25),
+            backButton.widthAnchor.constraint(equalToConstant: 20),
             
             titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titlePageLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 40),
+            titlePageLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 10),
             
             cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             cartIcon.heightAnchor.constraint(equalToConstant: 30),
             cartIcon.widthAnchor.constraint(equalToConstant: 30),
             
-            productNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            productNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             productNameLabel.topAnchor.constraint(equalTo: titlePageLabel.bottomAnchor, constant: 30),
             
-            productDetailsView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 100),
-            productDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            productDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            productDetailsView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 30),
+            productDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            productDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             productDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
             
-            productImageV.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 40),
+            productImageV.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 60),
             productImageV.leadingAnchor.constraint(equalTo: productDetailsView.leadingAnchor, constant: 20),
             productImageV.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -20),
             productImageV.bottomAnchor.constraint(equalTo: productDetailsView.bottomAnchor, constant: -150),
